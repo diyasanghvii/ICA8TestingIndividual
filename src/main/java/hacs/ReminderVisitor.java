@@ -18,7 +18,6 @@ import java.util.Calendar;
  */
 
 public class ReminderVisitor extends NodeVisitor {
-
 	Reminder mReminder;
 
 	public ReminderVisitor() {

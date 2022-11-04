@@ -14,8 +14,7 @@ import java.awt.event.*;
  * @version 2.0
  */
 
-abstract public class CourseMenu extends JDialog
-{
+abstract public class CourseMenu extends JDialog {
   Course theCourse;
   boolean bLogout=true;
   JRadioButton assignmentRadio = new JRadioButton();

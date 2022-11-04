@@ -9,8 +9,7 @@ import javax.swing.JDialog;
  * @version 2.0
  */
 
-abstract public class AssignmentMenu extends JDialog
-{
+abstract public class AssignmentMenu extends JDialog {
   abstract void showMenu(Assignment ass, Person per);
   public AssignmentMenu() {
     setModal(true);

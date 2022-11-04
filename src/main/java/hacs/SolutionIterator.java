@@ -8,8 +8,7 @@ import java.util.Iterator;
  * @author Diya Roshan Sanghvi
  * @version 2.0
  */
-public class SolutionIterator implements Iterator
-{
+public class SolutionIterator implements Iterator {
   SolutionList solutionList;
   int currentSolutionNumber = -1;
 

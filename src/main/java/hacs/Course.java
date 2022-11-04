@@ -15,7 +15,6 @@ public class Course {
   int numOfAss;
   int courseLevel;
 
-
   public Course(String course, int theLevel) {
     this.courseName = course;
     this.courseLevel = theLevel;
