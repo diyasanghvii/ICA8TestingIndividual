@@ -1,7 +1,6 @@
 package hacs;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class SolutionIteratorTest {
@@ -40,7 +39,7 @@ class SolutionIteratorTest {
     void testNext() {
         SolutionList list = new SolutionList();
         SolutionIterator itr = new SolutionIterator(list);
-        assertEquals(null, itr.next());
+        assertNull(itr.next());
     }
 
     @Test

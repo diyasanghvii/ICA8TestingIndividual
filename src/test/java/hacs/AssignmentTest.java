@@ -2,7 +2,6 @@ package hacs;
 
 import java.text.DateFormat;
 import java.util.Date;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class AssignmentTest {
@@ -26,7 +25,7 @@ class AssignmentTest {
 
     @org.junit.jupiter.api.Test
     void isOverDue() {
-        assertEquals(false|true, assignment.isOverDue());
+        assertTrue(assignment.isOverDue());
     }
 
     @org.junit.jupiter.api.Test

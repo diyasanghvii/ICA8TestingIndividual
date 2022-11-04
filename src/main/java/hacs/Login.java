@@ -15,7 +15,7 @@ import java.io.BufferedReader;
 
 /**
  * Title:        HACS
- * Description:  SER ICA8:  TestingIndividual
+ * Description:  SER Assignment:  TestingIndividual
  * @author Diya Roshan Sanghvi
  * @version 2.0
  */
