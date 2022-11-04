@@ -1,9 +1,6 @@
 package hacs;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import javax.swing.JDialog;
 
 /**
  * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
@@ -18,12 +15,10 @@ import java.io.*;
  */
 
 public class SolutionMenu extends JDialog {
-
 	public SolutionMenu() {
 	}
-
 	void ShowMenu(Solution theSolution) {
-		show();
+		setVisible(true);
 	}
 	
 }

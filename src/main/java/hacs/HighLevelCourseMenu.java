@@ -26,15 +26,11 @@ public class HighLevelCourseMenu extends CourseMenu {
 		showViewButtons();
 		showRadios();
 		showComboBoxes();
-		show();
+		setVisible(true);
 	}
 
 	void showAddButtons() {
-		assignmentAddButton.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				assignmentAddButtonActionPerformed(e);
-			}
-		});
+		assignmentAddButton.addActionListener(this::assignmentAddButtonActionPerformed);
 		assignmentAddButton.setText("Add");
 		assignmentAddButton.setBounds(new Rectangle(389, 54, 79, 29));
 		optionAddButton.setText("Add");
@@ -75,7 +71,7 @@ public class HighLevelCourseMenu extends CourseMenu {
 	}
 
 	void showLabel() {
-		assignmentContentLabel.setText("AssigmentContent");
+		assignmentContentLabel.setText("AssignmentContent");
 		assignmentContentLabel.setBounds(new Rectangle(23, 186, 432, 99));
 		this.getContentPane().add(assignmentContentLabel, null);
 	}

@@ -19,20 +19,16 @@ public class Hacs {
 	}
 
 	public static void main(String[] args) {
-//		String strUsername;
-//		String strUserType = null;
-		UserInfoItem userinfoitem = new UserInfoItem();
+		UserInfoItem userInfoItem = new UserInfoItem();
 		theFacade.createCourseList();
-		while (true) {
-			boolean bExit = false;
-			bExit = theFacade.Login(userinfoitem);
+		while(true) {
+			boolean bExit;
+			bExit = theFacade.Login(userInfoItem);
 			if (bExit)
 				break;
-			// userinfoitem.strUserName = "Inst1";
-			// userinfoitem.userType = 1;
-			theFacade.createUser(userinfoitem);
+			theFacade.createUser(userInfoItem);
 			theFacade.attachCourseToUser();
-			if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Student) // if is a student remind him of the due date
+			if (userInfoItem.UserType == UserInfoItem.USER_TYPE.Student)
 				theFacade.remind();
 			boolean bLogout = false;
 			while (!bLogout) {
@@ -42,6 +38,5 @@ public class Hacs {
 				bLogout = theFacade.CourseOperation();
 			}
 		}
-//    System.out.println(userinfoitem.strUserName +userinfoitem.userType );
 	}
 }

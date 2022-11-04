@@ -86,11 +86,11 @@ public class Login extends JDialog {
 			if (studentRadio.isSelected())
 			{
 				userType = USER_TYPE.Student;
-				file = new BufferedReader(new FileReader("StuInfo.txt"));
+				file = new BufferedReader(new FileReader("C:\\Users\\DIYA\\IdeaProjects\\ICA8TestingIndividual\\src\\main\\java\\hacs\\StuInfo.txt"));
 			} else
 			{
 				userType = USER_TYPE.Instructor;
-				file = new BufferedReader(new FileReader("InsInfor.txt"));
+				file = new BufferedReader(new FileReader("C:\\Users\\DIYA\\IdeaProjects\\ICA8TestingIndividual\\src\\main\\java\\hacs\\InsInfor.txt"));
 			}
 			userBox = userNameText.getText();
 			String passwordBox = new String(passwordText.getPassword());
@@ -112,7 +112,7 @@ public class Login extends JDialog {
 	}
 
 	/*
-	 * get the user name from aline UserName:Password
+	 * get the user name from aline userName:Password
 	 */
 	private String getUserName(String aLine) {
 		int sep = aLine.lastIndexOf(':');
@@ -120,14 +120,14 @@ public class Login extends JDialog {
 	}
 
 	/*
-	 * get the password from aLine UserName:Password
+	 * get the password from aLine userName:Password
 	 */
 	private String getPassword(String aLine) {
 		int sep = aLine.lastIndexOf(':');
 		return aLine.substring(sep + 1, aLine.length());
 	}
 
-	/* after login get the UserName of the login interface */
+	/* after login get the userName of the login interface */
 	public String getUserName() {
 		return userBox;
 	}

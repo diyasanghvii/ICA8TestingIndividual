@@ -54,12 +54,14 @@ public class Assignment {
   public void submitSolution() {
   }
 
-  public void getSolutionList() {
+  public SolutionList getSolutionList() {
+    return theSolutionList;
   }
 
   /* return the solution of the give name
   */
-  public Solution getSolution(String studentName) {
+  public Solution getSolution(String studentName)
+  {
     SolutionIterator iterator = (SolutionIterator)theSolutionList.iterator();
     return (Solution)iterator.next(studentName);
   }
@@ -78,7 +80,8 @@ public class Assignment {
     return assName;
   }
 
-  public String getDueDateString() {
+  public String getDueDateString()
+  {
     DateFormat dateFormat=DateFormat.getDateInstance(DateFormat.SHORT);
     return  dateFormat.format(dueDate);
   }

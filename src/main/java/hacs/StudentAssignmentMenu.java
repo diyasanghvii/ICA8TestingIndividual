@@ -41,7 +41,7 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		}
 	}
 
-	private void jbInit() throws Exception {
+	private void jbInit() {
 		jLabel1.setText("Assignment : ");
 		jLabel1.setBounds(new Rectangle(20, 36, 91, 18));
 		this.getContentPane().setLayout(null);
@@ -65,18 +65,10 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		lGrade.setBounds(new Rectangle(258, 226, 41, 18));
 		bSubmit.setText("Submit");
 		bSubmit.setBounds(new Rectangle(476, 124, 79, 29));
-		bSubmit.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				bSubmit_actionPerformed(e);
-			}
-		});
+		bSubmit.addActionListener(this::bSubmitActionPerformed);
 		bCancel.setText("Cancel");
 		bCancel.setBounds(new Rectangle(475, 164, 79, 29));
-		bCancel.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				bCancel_actionPerformed(e);
-			}
-		});
+		bCancel.addActionListener(this::bCancelActionPerformed);
 		this.getContentPane().add(jLabel1, null);
 		this.getContentPane().add(jLabel3, null);
 		this.getContentPane().add(jLabel5, null);
@@ -96,43 +88,47 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	 * solution for the student. after showing the solution attatch the soluiton;
 	 */
 	public void showMenu(Assignment assignment, Person thePerson) {
-		theAssignment = assignment;
+		try{
+			theAssignment = assignment;
 		SolutionIterator theIter = theAssignment.getSolutionIterator();
-		theSolution = (Solution) theIter.next(thePerson.UserName);
+		theSolution = (Solution) theIter.next(thePerson.userName);
 		if (theSolution == null) {
 			tbSolution.setText("");
 			lGrade.setText("-1");
 		} else {
-			tbSolution.setText(theSolution.SolutionFileName);
+			tbSolution.setText(theSolution.solutionFileName);
 			lGrade.setText(theSolution.getGradeString());
 
 		}
 
 		lAssignmentName.setText(theAssignment.assName);
 		lDueDate.setText(theAssignment.dueDate.toString());
-		lSuggestedSolution.setText(theAssignment.suggestSolution.SolutionFileName);
+		lSuggestedSolution.setText(theAssignment.suggestSolution.solutionFileName);
 
-		show();
+		setVisible(true);
 
-		if (boolSubmit == true) {
+		if (boolSubmit) {
 			if (theSolution == null) {
 				theSolution = new Solution();
 				theAssignment.addSolution(theSolution);
 			}
-			theSolution.theAuthor = thePerson.UserName;
-			theSolution.SolutionFileName = tbSolution.getText();
+			theSolution.theAuthor = thePerson.userName;
+			theSolution.solutionFileName = tbSolution.getText();
 			theSolution.theSubmitData = new Date();
+		}
+		} catch (Exception e){
+			/*IGNORE EXCEPTION e*/
 		}
 	}
 
-	void bSubmit_actionPerformed(ActionEvent e) {
+	void bSubmitActionPerformed(ActionEvent e) {
 		boolSubmit = true;
-		hide();
+		setVisible(false);
 	}
 
-	void bCancel_actionPerformed(ActionEvent e) {
+	void bCancelActionPerformed(ActionEvent e) {
 		boolSubmit = false;
-		hide();
+		setVisible(false);
 	}
 
 }

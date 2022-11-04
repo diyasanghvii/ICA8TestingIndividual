@@ -3,8 +3,6 @@ package hacs;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
-import java.util.*;
 
 /**
  * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
@@ -14,7 +12,7 @@ import java.util.*;
  */
 
 public class Reminder extends JDialog {
-	ClassCourseList CourseList;
+	ClassCourseList courseList;
 	JLabel jLabel1 = new JLabel();
 	JLabel jLabel2 = new JLabel();
 	java.awt.List listUpcoming = new java.awt.List();
@@ -31,7 +29,7 @@ public class Reminder extends JDialog {
 		}
 	}
 
-	private void jbInit() throws Exception {
+	private void jbInit() {
 		jLabel1.setText("Upcoming assignments");
 		jLabel1.setBounds(new Rectangle(38, 40, 159, 17));
 		this.getContentPane().setLayout(null);
@@ -41,11 +39,7 @@ public class Reminder extends JDialog {
 		listOverdue.setBounds(new Rectangle(31, 187, 337, 85));
 		buttonOK.setLabel("OK");
 		buttonOK.setBounds(new Rectangle(149, 308, 67, 37));
-		buttonOK.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				buttonOK_actionPerformed(e);
-			}
-		});
+		buttonOK.addActionListener(this::buttonOK_actionPerformed);
 		this.getContentPane().add(jLabel1, null);
 		this.getContentPane().add(jLabel2, null);
 		this.getContentPane().add(listUpcoming, null);
@@ -57,10 +51,10 @@ public class Reminder extends JDialog {
 		Assignment assignment;
 		ReminderVisitor visitor = new ReminderVisitor(this);
 		visitor.visitFacade(Hacs.theFacade);
-		show();
+		setVisible(true);
 	}
 
 	void buttonOK_actionPerformed(ActionEvent e) {
-		hide();
+		setVisible(false);;
 	}
 }

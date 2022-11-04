@@ -21,7 +21,7 @@ public class ClassCourseList extends ArrayList<Course> {
 		try {
 			BufferedReader file;
 			String courseName = null;
-			file = new BufferedReader(new FileReader("CourseInfo.txt"));
+			file = new BufferedReader(new FileReader("C:\\Users\\DIYA\\IdeaProjects\\ICA8TestingIndividual\\src\\main\\java\\hacs\\CourseInfo.txt"));
 			while ((courseName = file.readLine()) != null) {
 				Course theCourse;
 				theCourse = new Course(courseName, 0);

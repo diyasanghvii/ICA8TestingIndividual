@@ -97,7 +97,7 @@ public class Facade {
 
 	void remind() {
 		Reminder theReminder = new Reminder();
-		theReminder.showReminder(thePerson.GetCourseList());
+		theReminder.showReminder(thePerson.getCourseList());
 	}
 
 	void createUser(UserInfoItem userinfoitem) {
@@ -107,7 +107,7 @@ public class Facade {
 		} else {
 			thePerson = new Instructor();
 		}
-		thePerson.UserName = userinfoitem.strUserName;
+		thePerson.userName = userinfoitem.strUserName;
 	}
 
 	/*
@@ -121,23 +121,23 @@ public class Facade {
 	/*
 	 * call this function after create user, create courselist read the
 	 * UserCourse.txt file match the coursename with theCouresList attach the
-	 * Matched course object to the new create user Facade.thePerson.CourseList
+	 * Matched course object to the new create user Facade.thePerson.courseList
 	 */
 	void attachCourseToUser() {
 		BufferedReader file;
 		try {
-			file = new BufferedReader(new FileReader("UserCourse.txt"));
+			file = new BufferedReader(new FileReader("C:\\Users\\DIYA\\IdeaProjects\\ICA8TestingIndividual\\src\\main\\java\\hacs\\UserCourse.txt"));
 			String aLine, strUserName, strCourseName;
 			while ((aLine = file.readLine()) != null)
 			{
-				strUserName = GetUserName(aLine);
-				strCourseName = GetCourseName(aLine);
-				if (strUserName.compareTo(thePerson.UserName) == 0)
+				strUserName = getUserName(aLine);
+				strCourseName = getCourseName(aLine);
+				if (strUserName.compareTo(thePerson.userName) == 0)
 				{
 					theSelectedCourse = FindCourseByCourseName(strCourseName);
 					if (theSelectedCourse != null)
 					{
-						thePerson.AddCourse(theSelectedCourse);
+						thePerson.addCourse(theSelectedCourse);
 					}
 				}
 			}
@@ -147,19 +147,19 @@ public class Facade {
 	}
 
 	/*
-	 * get the user name from aline UserName:courseName
+	 * get the user name from aline userName:courseName
 	 */
-	private String GetUserName(String aline) {
+	private String getUserName(String aline) {
 		int Sep = aline.lastIndexOf(':');
 		return aline.substring(0, Sep);
 	}
 
 	/*
-	 * get the courseName from aline UserName:courseName
+	 * get the courseName from aline userName:courseName
 	 */
-	private String GetCourseName(String aline) {
-		int Sep = aline.lastIndexOf(':');
-		return aline.substring(Sep + 1, aline.length());
+	private String getCourseName(String aLine) {
+		int Sep = aLine.lastIndexOf(':');
+		return aLine.substring(Sep + 1, aLine.length());
 	}
 
 	/*
@@ -170,21 +170,21 @@ public class Facade {
 	 */
 	public boolean SelectCourse() {
 		CourseSelectDlg theDlg = new CourseSelectDlg();
-		theSelectedCourse = theDlg.ShowDlg(thePerson.CourseList);
-		thePerson.CurrentCourse = theSelectedCourse;
+		theSelectedCourse = theDlg.ShowDlg(thePerson.courseList);
+		thePerson.currentCourse = theSelectedCourse;
 		nCourseLevel = theDlg.nCourseLevel;
 		return theDlg.isLogout();
 	}
 
 	/*
-	 * call the thePerson.CreateCourseMenu according to the really object(student or
+	 * call the thePerson.createCourseMenu according to the really object(student or
 	 * instructor) and the nCourseLevel it will call different menu creater and show
 	 * the menu;
 	 */
 
 	public boolean CourseOperation() {
-		thePerson.CreateCourseMenu(theSelectedCourse, nCourseLevel);
-		return thePerson.ShowMenu();//// 0: logout 1 select an other course
+		thePerson.createCourseMenu(theSelectedCourse, nCourseLevel);
+		return thePerson.showMenu();//// 0: logout 1 select an other course
 	}
 
 	/*

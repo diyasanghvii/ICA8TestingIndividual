@@ -16,7 +16,7 @@ import java.util.*;
 
 /*
  * this class will iterate the course list attatched to on student and in turn
- * iterate the assignments of a course. after Function Visit(CourseList) it will
+ * iterate the assignments of a course. after Function Visit(courseList) it will
  * point to the location before the fist class, hasNext will retrun weather
  * there is next item. the next() will return the next Item Assignment;
  */
@@ -52,16 +52,14 @@ public class ReminderVisitor extends NodeVisitor {
 		Date today = new Date();
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(today);
-		int ntoday = calendar.get(Calendar.DAY_OF_YEAR);
+		int dayToday = calendar.get(Calendar.DAY_OF_YEAR);
 		calendar.setTime(assignment.dueDate);
 		int nDueDate = calendar.get(Calendar.DAY_OF_YEAR);
-		if (nDueDate <= (ntoday + 1) && nDueDate >= ntoday) /// upcoming
-		{
+		if (nDueDate <= (dayToday + 1) && nDueDate >= dayToday) {
 			m_Reminder.listUpcoming.add("today is " + today.toString() + " " + assignment.assName + " Due Date is "
 					+ assignment.getDueDateString());
 		}
-		if (nDueDate < ntoday) {
-			// put to the
+		if (nDueDate < dayToday) {
 			m_Reminder.listOverdue.add(assignment.assName + " Due Date is " + assignment.getDueDateString());
 		}
 

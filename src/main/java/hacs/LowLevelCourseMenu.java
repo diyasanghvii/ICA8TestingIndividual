@@ -62,7 +62,7 @@ public class LowLevelCourseMenu extends CourseMenu {
 	}
 
 	void showLabel() {
-		assignmentContentLabel.setText("AssigmentContent");
+		assignmentContentLabel.setText("AssignmentContent");
 		assignmentContentLabel.setBounds(new Rectangle(23, 186, 432, 99));
 		this.getContentPane().add(assignmentContentLabel, null);
 	}
