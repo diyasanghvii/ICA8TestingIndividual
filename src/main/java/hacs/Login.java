@@ -45,7 +45,7 @@ public class Login extends JDialog {
 
 	private void jbInit() {
 		this.getContentPane().setLayout(null);
-		jLabel1.setText("UserName");
+		jLabel1.setText("User Name");
 		jLabel1.setBounds(new Rectangle(26, 52, 80, 18));
 		jLabel2.setText("Password");
 		jLabel2.setBounds(new Rectangle(23, 119, 80, 18));

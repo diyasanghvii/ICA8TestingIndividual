@@ -31,10 +31,10 @@ public class Reminder extends JDialog {
 	}
 
 	private void jbInit() {
-		jLabel1.setText("Upcoming assignments");
+		jLabel1.setText("Upcoming Assignments");
 		jLabel1.setBounds(new Rectangle(38, 40, 159, 17));
 		this.getContentPane().setLayout(null);
-		jLabel2.setText("OverDue Assignments");
+		jLabel2.setText("Overdue Assignments");
 		jLabel2.setBounds(new Rectangle(39, 160, 161, 17));
 		listUpcoming.setBounds(new Rectangle(29, 65, 340, 79));
 		listOverdue.setBounds(new Rectangle(31, 187, 337, 85));

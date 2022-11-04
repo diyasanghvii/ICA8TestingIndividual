@@ -36,10 +36,8 @@ public class CourseIterator implements Iterator {
   public Object next(String courseName) {
     Course theCourse;
     theCourse = (Course)next();
-    while(theCourse != null)
-    {
-      if(courseName.compareTo(theCourse.toString()) == 0)
-      {
+    while(theCourse != null) {
+      if(courseName.compareTo(theCourse.toString()) == 0) {
         return theCourse;
       }
       theCourse = (Course)next();
