@@ -1,14 +1,17 @@
 package hacs;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JDialog;
+import javax.swing.JButton;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
- * @version 1.0
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 public class SolutionGradingDlg extends JDialog {

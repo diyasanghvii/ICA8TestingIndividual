@@ -1,18 +1,19 @@
 package hacs;
 
-import javax.swing.*;
+import javax.swing.JDialog;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Iterator;
 
-
 /**
  * Title:        HACS
- * Description:
- * Copyright:    Copyright (c) 2002
- * Company:      msu
- * @author Zhang ji Zhu Wei
- * @version 1.0
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 abstract public class CourseMenu extends JDialog
@@ -69,39 +70,36 @@ abstract public class CourseMenu extends JDialog
   abstract void showComboBoxes();
   abstract void showLabel();
 
-  void assignmentAddButtonActionPerformed(ActionEvent e)
-  {
+  void assignmentAddButtonActionPerformed(ActionEvent e) {
     Hacs.theFacade.addAssignment(theCourse);
     refresh();
   }
-  void assignmentViewButtonActionPerformed(ActionEvent e)
-  {
+
+  void assignmentViewButtonActionPerformed(ActionEvent e) {
     Assignment theAssignment = (Assignment)assignmentComboBox.getSelectedItem();
     Hacs.theFacade.viewAssignment(theAssignment);
   }
-  void refresh()
-  {
+
+  void refresh() {
     assignmentComboBox.removeAllItems();
-    Iterator iter = theCourse.assignmentList.iterator();
+    Iterator<Assignment> iter = theCourse.assignmentList.iterator();
     while(iter.hasNext())
     {
       assignmentComboBox.addItem(iter.next());
     }
   }
 
-  void buttonChangeCourseActionPerformed(ActionEvent e)
-  {
+  void buttonChangeCourseActionPerformed(ActionEvent e) {
     bLogout=false;
     setVisible(false);
   }
 
-  void buttonLogoutActionPerformed(ActionEvent e)
-  {
+  void buttonLogoutActionPerformed(ActionEvent e) {
     bLogout=true;
     setVisible(false);
   }
-  boolean ifLogout()
-  {
+
+  boolean ifLogout() {
     return bLogout;
   }
 }

@@ -1,14 +1,12 @@
 package hacs;
 
-import java.util.*;
+import java.util.Iterator;
 
 /**
- * Title: HACS Description: CSE870 Homework 3: Implementing Design Patterns
- * Copyright: Copyright (c) 2002 Company: Department of Computer Science and
- * Engineering, Michigan State University
- * 
- * @author Ji Zhang, Wei Zhu
- * @version 1.0
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 abstract public class Person {

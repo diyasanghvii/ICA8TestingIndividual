@@ -1,27 +1,22 @@
 package hacs;
 
 /**
- * Title: HACS Description: CSE870 Homework 3: Implementing Design Patterns
- * Copyright: Copyright (c) 2002 Company: Department of Computer Science and
- * Engineering, Michigan State University
- * 
- * @author Ji Zhang, Wei Zhu
- * @version 1.0
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 public class Student extends Person {
-
 	public Student() {
 		type = 0;
 	}
 
 	public CourseMenu createCourseMenu(Course theCourse, int theLevel) {
 
-		if (theLevel == 0)
-		{
+		if (theLevel == 0) {
 			theCourseMenu = new HighLevelCourseMenu();
-		} else
-		{
+		} else {
 			theCourseMenu = new LowLevelCourseMenu();
 		}
 		return theCourseMenu;

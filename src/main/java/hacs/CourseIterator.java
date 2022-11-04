@@ -4,11 +4,9 @@ import java.util.Iterator;
 
 /**
  * Title:        HACS
- * Description:
- * Copyright:    Copyright (c) 2002
- * Company:      msu
- * @author Zhang ji Zhu Wei
- * @version 1.0
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 public class CourseIterator implements Iterator
@@ -32,8 +30,7 @@ public class CourseIterator implements Iterator
   }
 
   public Object next() {
-    if (hasNext()==true)
-    {
+    if (hasNext()) {
       currentCourseNumber++;
       return theCourseList.get(currentCourseNumber);
     } else {
@@ -44,16 +41,16 @@ public class CourseIterator implements Iterator
     theCourseList.remove(currentCourseNumber);
   }
 
-  public Object next(String CourseName) {
+  public Object next(String courseName) {
     Course theCourse;
-    theCourse=(Course)next();
-    while(theCourse!=null)
+    theCourse = (Course)next();
+    while(theCourse != null)
     {
-      if(CourseName.compareTo(theCourse.toString())==0)
+      if(courseName.compareTo(theCourse.toString()) == 0)
       {
         return theCourse;
       }
-      theCourse=(Course)next();
+      theCourse = (Course)next();
     }
     return null;
   }

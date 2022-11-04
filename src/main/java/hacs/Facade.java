@@ -1,16 +1,13 @@
 package hacs;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
- * @version 1.0
- * @author mjfindler
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
  * @version 2.0
- * 
- *          Update to Jave 8
  */
 
 public class Facade {
@@ -23,12 +20,12 @@ public class Facade {
 	public Facade() {
 	}
 
-	static public boolean Login(UserInfoItem userinfoItem) {
+	static public boolean Login(UserInfoItem userInfoItem) {
 		Login login = new Login();
 		login.setModal(true);
 		login.setVisible(true);
-		userinfoItem.strUserName = login.getUserName();
-		userinfoItem.UserType = login.getUserType();
+		userInfoItem.strUserName = login.getUserName();
+		userInfoItem.userType = login.getUserType();
 		return login.isExit();
 	}
 
@@ -101,7 +98,7 @@ public class Facade {
 	}
 
 	void createUser(UserInfoItem userinfoitem) {
-		if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Student) /// student
+		if (userinfoitem.userType == UserInfoItem.USER_TYPE.Student) /// student
 		{
 			thePerson = new Student();
 		} else {
@@ -115,7 +112,7 @@ public class Facade {
 	 */
 	void createCourseList() {
 		theCourseList = new ClassCourseList();
-		theCourseList.initializeFromFile("CourseInfo.txt");
+		theCourseList.initializeFromFile("C:\\Users\\DIYA\\IdeaProjects\\ICA8TestingIndividual\\src\\main\\java\\hacs\\CourseInfo.txt");
 	}
 
 	/*
@@ -134,7 +131,7 @@ public class Facade {
 				strCourseName = getCourseName(aLine);
 				if (strUserName.compareTo(thePerson.userName) == 0)
 				{
-					theSelectedCourse = FindCourseByCourseName(strCourseName);
+					theSelectedCourse = findCourseByCourseName(strCourseName);
 					if (theSelectedCourse != null)
 					{
 						thePerson.addCourse(theSelectedCourse);
@@ -149,9 +146,9 @@ public class Facade {
 	/*
 	 * get the user name from aline userName:courseName
 	 */
-	private String getUserName(String aline) {
-		int Sep = aline.lastIndexOf(':');
-		return aline.substring(0, Sep);
+	private String getUserName(String aLine) {
+		int Sep = aLine.lastIndexOf(':');
+		return aLine.substring(0, Sep);
 	}
 
 	/*
@@ -168,9 +165,9 @@ public class Facade {
 	 * theSelectedCourse, the Course Level to courseLevel CourseLeve=0 High,
 	 * CourseLeve=1 Low
 	 */
-	public boolean SelectCourse() {
+	public boolean selectCourse() {
 		CourseSelectDlg theDlg = new CourseSelectDlg();
-		theSelectedCourse = theDlg.ShowDlg(thePerson.courseList);
+		theSelectedCourse = theDlg.showDlg(thePerson.courseList);
 		thePerson.currentCourse = theSelectedCourse;
 		nCourseLevel = theDlg.nCourseLevel;
 		return theDlg.isLogout();
@@ -182,7 +179,7 @@ public class Facade {
 	 * the menu;
 	 */
 
-	public boolean CourseOperation() {
+	public boolean courseOperation() {
 		thePerson.createCourseMenu(theSelectedCourse, nCourseLevel);
 		return thePerson.showMenu();//// 0: logout 1 select an other course
 	}
@@ -192,7 +189,7 @@ public class Facade {
 	 * CourseIterator for the List 2 Find the Course with the Iterator return the
 	 * pointer of the Course if not fine, return null;
 	 */
-	private Course FindCourseByCourseName(String strCourseName) {
+	private Course findCourseByCourseName(String strCourseName) {
 		CourseIterator Iterator = new CourseIterator(theCourseList);
 		return (Course) Iterator.next(strCourseName);
 	}

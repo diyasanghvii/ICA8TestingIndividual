@@ -1,14 +1,16 @@
 package hacs;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import java.awt.Rectangle;
+import java.awt.Button;
+import java.awt.event.ActionEvent;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
- * @version 1.0
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 public class Reminder extends JDialog {
@@ -39,7 +41,7 @@ public class Reminder extends JDialog {
 		listOverdue.setBounds(new Rectangle(31, 187, 337, 85));
 		buttonOK.setLabel("OK");
 		buttonOK.setBounds(new Rectangle(149, 308, 67, 37));
-		buttonOK.addActionListener(this::buttonOK_actionPerformed);
+		buttonOK.addActionListener(this::buttonOKActionPerformed);
 		this.getContentPane().add(jLabel1, null);
 		this.getContentPane().add(jLabel2, null);
 		this.getContentPane().add(listUpcoming, null);
@@ -54,7 +56,7 @@ public class Reminder extends JDialog {
 		setVisible(true);
 	}
 
-	void buttonOK_actionPerformed(ActionEvent e) {
-		setVisible(false);;
+	void buttonOKActionPerformed(ActionEvent e) {
+		setVisible(false);
 	}
 }

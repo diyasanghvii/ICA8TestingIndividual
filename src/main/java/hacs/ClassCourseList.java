@@ -1,15 +1,14 @@
 package hacs;
 
 import java.util.ArrayList;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
- * @version 1.0
- * @author mjfindler
- * @version 2.0 update to Java 8
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 public class ClassCourseList extends ArrayList<Course> {
@@ -28,7 +27,7 @@ public class ClassCourseList extends ArrayList<Course> {
 				add(theCourse);
 			}
 		} catch (Exception ee) {
-			/* Ignore ee */
+			/* IGNORE EXCEPTION ee */
 		}
 	}
 

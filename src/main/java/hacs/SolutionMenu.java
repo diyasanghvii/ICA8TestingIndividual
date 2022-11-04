@@ -3,15 +3,10 @@ package hacs;
 import javax.swing.JDialog;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
- * @version 1.0
- * 
- * @author mjfindler
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
  * @version 2.0
- * 
- * Update to Java 8
  */
 
 public class SolutionMenu extends JDialog {

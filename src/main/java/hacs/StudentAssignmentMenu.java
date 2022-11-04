@@ -1,24 +1,23 @@
 package hacs;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.util.Date;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
- * @version 1.0
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 public class StudentAssignmentMenu extends AssignmentMenu {
-
-////  class AssignmentMenu
 	private boolean boolSubmit = false;
 	private Solution theSolution;
 	private Assignment theAssignment;
-
 	JLabel lAssignmentName = new JLabel();
 	JLabel lDueDate = new JLabel();
 	JTextField tbSolution = new JTextField();
@@ -26,7 +25,6 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	JLabel lGrade = new JLabel();
 	JButton bSubmit = new JButton();
 	JButton bCancel = new JButton();
-
 	JLabel jLabel1 = new JLabel();
 	JLabel jLabel3 = new JLabel();
 	JLabel jLabel5 = new JLabel();
@@ -90,32 +88,28 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	public void showMenu(Assignment assignment, Person thePerson) {
 		try{
 			theAssignment = assignment;
-		SolutionIterator theIter = theAssignment.getSolutionIterator();
-		theSolution = (Solution) theIter.next(thePerson.userName);
-		if (theSolution == null) {
-			tbSolution.setText("");
-			lGrade.setText("-1");
-		} else {
-			tbSolution.setText(theSolution.solutionFileName);
-			lGrade.setText(theSolution.getGradeString());
-
-		}
-
-		lAssignmentName.setText(theAssignment.assName);
-		lDueDate.setText(theAssignment.dueDate.toString());
-		lSuggestedSolution.setText(theAssignment.suggestSolution.solutionFileName);
-
-		setVisible(true);
-
-		if (boolSubmit) {
+			SolutionIterator theIter = theAssignment.getSolutionIterator();
+			theSolution = (Solution) theIter.next(thePerson.userName);
 			if (theSolution == null) {
-				theSolution = new Solution();
-				theAssignment.addSolution(theSolution);
+				tbSolution.setText("");
+				lGrade.setText("-1");
+			} else {
+				tbSolution.setText(theSolution.solutionFileName);
+				lGrade.setText(theSolution.getGradeString());
 			}
-			theSolution.theAuthor = thePerson.userName;
-			theSolution.solutionFileName = tbSolution.getText();
-			theSolution.theSubmitData = new Date();
-		}
+			lAssignmentName.setText(theAssignment.assName);
+			lDueDate.setText(theAssignment.dueDate.toString());
+			lSuggestedSolution.setText(theAssignment.suggestSolution.solutionFileName);
+			setVisible(true);
+			if (boolSubmit) {
+				if (theSolution == null) {
+					theSolution = new Solution();
+					theAssignment.addSolution(theSolution);
+				}
+				theSolution.theAuthor = thePerson.userName;
+				theSolution.solutionFileName = tbSolution.getText();
+				theSolution.theSubmitData = new Date();
+			}
 		} catch (Exception e){
 			/*IGNORE EXCEPTION e*/
 		}

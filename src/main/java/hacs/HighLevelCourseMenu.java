@@ -2,14 +2,13 @@ package hacs;
 
 /**
  * Title:        HACS
- * Description:
- * Copyright:    Copyright (c) 2002
- * Company:      msu
- * @author Zhang ji Zhu Wei
- * @version 1.0
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
-import java.awt.*;
-import java.awt.event.*;
+
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
 
 public class HighLevelCourseMenu extends CourseMenu {
 
@@ -59,11 +58,7 @@ public class HighLevelCourseMenu extends CourseMenu {
 	void showViewButtons() {
 		assignmentViewButton.setText("View");
 		assignmentViewButton.setBounds(new Rectangle(290, 54, 79, 29));
-		assignmentViewButton.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				assignmentViewButtonActionPerformed(e);
-			}
-		});
+		assignmentViewButton.addActionListener(this::assignmentViewButtonActionPerformed);
 		optionViewButton.setText("View");
 		optionViewButton.setBounds(new Rectangle(290, 124, 79, 29));
 		this.getContentPane().add(assignmentViewButton, null);

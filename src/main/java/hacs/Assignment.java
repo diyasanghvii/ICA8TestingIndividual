@@ -2,14 +2,12 @@ package hacs;
 
 /**
  * Title:        HACS
- * Description:  CSE870 Homework 3:  Implementing Design Patterns
- * Copyright:    Copyright (c) 2002
- * Company:      Department of Computer Science and Engineering, Michigan State University
- * @author Ji Zhang, Wei Zhu
- * @version 1.0
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
-import java.util.*;
+import java.util.Date;
 import java.text.DateFormat;
 
 public class Assignment {

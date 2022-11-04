@@ -1,17 +1,18 @@
 package hacs;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.Rectangle;
 import java.text.DateFormat;
 
 /**
  * Title:        HACS
- * Description:
- * Copyright:    Copyright (c) 2002
- * Company:      msu
- * @author Zhang ji Zhu Wei
- * @version 1.0
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 public class InstructorAssignmentMenu extends AssignmentMenu {
@@ -23,7 +24,6 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
   JTextField tbAssignmentName = new JTextField();
   JTextField tbDueDate = new JTextField();
   JTextField tbSuggestedSolution = new JTextField();
-
   JLabel jLabel1 = new JLabel();
   JLabel jLabel2 = new JLabel();
   JLabel jLabel3 = new JLabel();
@@ -38,6 +38,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
       e.printStackTrace();
     }
   }
+
   private void jbInit() {
     jLabel1.setText("Assignment Name");
     jLabel1.setBounds(new Rectangle(25, 31, 118, 18));
@@ -73,6 +74,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     this.getContentPane().add(buttonGrade, null);
     this.getContentPane().add(buttonReport, null);
   }
+
   public void showMenu(Assignment assignment, Person person) {
     try {
       theAssignment = assignment;
@@ -95,7 +97,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     try {
       theAssignment.dueDate =tempDateFormat.parse(tbDueDate.getText());
     } catch (Exception ee){
-      /* Ignore ee */
+      /*IGNORE EXCEPTION ee */
     }
     theAssignment.suggestSolution.solutionFileName = tbSuggestedSolution.getText();
     setVisible(false);
@@ -112,18 +114,17 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 
   void buttonReport_actionPerformed(ActionEvent e) {
     SolutionIterator iter = new SolutionIterator(theAssignment.theSolutionList );
-    while(iter.hasNext())
-    {
+    while(iter.hasNext()) {
       Solution aSolution=(Solution)iter.next();
       aSolution.setReported(true);
     }
     refreshSolutionList();
   }
+
   private void refreshSolutionList() {
     comboSolutionList.removeAllItems() ;
     SolutionIterator solIter = new SolutionIterator(theAssignment.theSolutionList);
-    while(solIter.hasNext())
-    {
+    while(solIter.hasNext()) {
       theSolution=(Solution)solIter.next();
       comboSolutionList.addItem(theSolution);
     }

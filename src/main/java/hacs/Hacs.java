@@ -1,18 +1,13 @@
 package hacs;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
- * @version 1.0
- * @author mjfindler
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
  * @version 2.0
- * 
- * Update to Java 8
  */
 
 public class Hacs {
-
 	static Facade theFacade = new Facade();
 
 	public Hacs() {
@@ -28,14 +23,14 @@ public class Hacs {
 				break;
 			theFacade.createUser(userInfoItem);
 			theFacade.attachCourseToUser();
-			if (userInfoItem.UserType == UserInfoItem.USER_TYPE.Student)
+			if (userInfoItem.userType == UserInfoItem.USER_TYPE.Student)
 				theFacade.remind();
 			boolean bLogout = false;
 			while (!bLogout) {
-				bLogout = theFacade.SelectCourse();
+				bLogout = theFacade.selectCourse();
 				if (bLogout)
 					break;
-				bLogout = theFacade.CourseOperation();
+				bLogout = theFacade.courseOperation();
 			}
 		}
 	}

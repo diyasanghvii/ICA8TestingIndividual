@@ -4,13 +4,10 @@ import java.util.Iterator;
 
 /**
  * Title:        HACS
- * Description:
- * Copyright:    Copyright (c) 2002
- * Company:      msu
- * @author Zhang ji Zhu Wei
- * @version 1.0
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
-
 public class SolutionIterator implements Iterator
 {
   SolutionList solutionList;
@@ -22,40 +19,37 @@ public class SolutionIterator implements Iterator
     solutionList = theSolutionList;
     moveToHead();
   }
+  public int getCurrentSolutionNumber() {
+    return currentSolutionNumber;
+  }
 
   public void moveToHead() {
     currentSolutionNumber =-1;
   }
 
   public boolean hasNext() {
-
     if (currentSolutionNumber >= solutionList.size()-1)
       return false;
     else
       return true;
   }
   public Object next() {
-    if (hasNext())
-    {
+    if (hasNext()) {
       currentSolutionNumber++;
       return solutionList.get(currentSolutionNumber);
-    }
-    else
-    {
+    } else {
       return null;
     }
   }
 
-  public Object next(String UserName) {
+  public Object next(String userName) {
     Solution theSolution;
-    theSolution=(Solution)next();
-    while(theSolution!=null)
-    {
-      if(UserName.equals(theSolution.theAuthor))
-      {
+    theSolution = (Solution)next();
+    while(theSolution != null) {
+      if(userName.equals(theSolution.theAuthor)) {
         return theSolution;
       }
-      theSolution=(Solution)next();
+      theSolution = (Solution)next();
     }
     return null;
   }

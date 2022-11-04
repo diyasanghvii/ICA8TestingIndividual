@@ -1,14 +1,13 @@
 package hacs;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
- * @version 1.0
- * @author mjfindler
- * @version 2.0 use <e> notation
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 public class ListIterator implements Iterator<Object> {

@@ -14,14 +14,10 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
- * @version 1.0
- * @author mjfindler
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
  * @version 2.0
- * 
- *          Update to Java 8
  */
 
 public class Login extends JDialog {
@@ -83,12 +79,10 @@ public class Login extends JDialog {
 		mbExit = false;
 		System.out.println("login clicked");
 		try {
-			if (studentRadio.isSelected())
-			{
+			if (studentRadio.isSelected()) {
 				userType = USER_TYPE.Student;
 				file = new BufferedReader(new FileReader("C:\\Users\\DIYA\\IdeaProjects\\ICA8TestingIndividual\\src\\main\\java\\hacs\\StuInfo.txt"));
-			} else
-			{
+			} else {
 				userType = USER_TYPE.Instructor;
 				file = new BufferedReader(new FileReader("C:\\Users\\DIYA\\IdeaProjects\\ICA8TestingIndividual\\src\\main\\java\\hacs\\InsInfor.txt"));
 			}

@@ -10,10 +10,10 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
- * @version 1.0
+ * Title:        HACS
+ * Description:  SER ICA8:  TestingIndividual
+ * @author Diya Roshan Sanghvi
+ * @version 2.0
  */
 
 public class CourseSelectDlg extends JDialog {
@@ -53,7 +53,7 @@ public class CourseSelectDlg extends JDialog {
 		jLabel1.setBounds(new Rectangle(39, 44, 85, 18));
 		okButton.setText("OK");
 		okButton.setBounds(new Rectangle(78, 139, 79, 29));
-		okButton.addActionListener(this::OKButton_actionPerformed);
+		okButton.addActionListener(this::okButtonActionPerformed);
 		buttonLogout.setText("Logout");
 		buttonLogout.setBounds(new Rectangle(224, 140, 73, 31));
 		buttonLogout.addActionListener(this::buttonLogoutActionPerformed);
@@ -72,8 +72,7 @@ public class CourseSelectDlg extends JDialog {
 	 * return the pointer pointing to the Course object return the Course Type
 	 */
 
-	public Course ShowDlg(ClassCourseList courseList) {
-
+	public Course showDlg(ClassCourseList courseList) {
 		theCourseList = courseList;
 		CourseIterator theIterator = new CourseIterator(theCourseList);
 		Course theCourse;
@@ -85,7 +84,7 @@ public class CourseSelectDlg extends JDialog {
 		return selectedCourse;
 	}
 
-	void OKButton_actionPerformed(ActionEvent e) {
+	void okButtonActionPerformed(ActionEvent e) {
 		selectedCourse = (Course) courseNameCom.getSelectedItem();
 		if (highLevelRadio.isSelected())
 			nCourseLevel = 0;
