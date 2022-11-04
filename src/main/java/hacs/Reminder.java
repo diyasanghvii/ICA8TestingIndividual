@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
  */
 
 public class Reminder extends JDialog {
-	ClassCourseList courseList;
 	JLabel jLabel1 = new JLabel();
 	JLabel jLabel2 = new JLabel();
 	java.awt.List listUpcoming = new java.awt.List();
@@ -49,8 +48,7 @@ public class Reminder extends JDialog {
 		this.getContentPane().add(buttonOK, null);
 	}
 
-	void showReminder(ClassCourseList courseList) {
-		Assignment assignment;
+	void showReminder() {
 		ReminderVisitor visitor = new ReminderVisitor(this);
 		visitor.visitFacade(Hacs.theFacade);
 		setVisible(true);

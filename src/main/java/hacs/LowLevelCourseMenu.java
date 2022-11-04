@@ -1,21 +1,16 @@
 package hacs;
 
-/**
- * Title:        HACS
- * Description:  SER ICA8:  TestingIndividual
- * @author Diya Roshan Sanghvi
+/*
+  Title:        HACS
+  Description:  SER ICA8:  TestingIndividual
+  @author Diya Roshan Sanghvi
  * @version 2.0
  */
 
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
 
 public class LowLevelCourseMenu extends CourseMenu {
 	public LowLevelCourseMenu() {
-	}
-
-	void showMenu(Course theCourse) {
-		setVisible(true);
 	}
 
 	void showAddButtons() {
@@ -53,11 +48,5 @@ public class LowLevelCourseMenu extends CourseMenu {
 		optionViewButton.setBounds(new Rectangle(290, 124, 79, 29));
 		this.getContentPane().add(assignmentViewButton, null);
 		this.getContentPane().add(optionViewButton, null);
-	}
-
-	void showLabel() {
-		assignmentContentLabel.setText("AssignmentContent");
-		assignmentContentLabel.setBounds(new Rectangle(23, 186, 432, 99));
-		this.getContentPane().add(assignmentContentLabel, null);
 	}
 }

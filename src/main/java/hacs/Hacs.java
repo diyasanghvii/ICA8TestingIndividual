@@ -18,7 +18,7 @@ public class Hacs {
 		theFacade.createCourseList();
 		while(true) {
 			boolean bExit;
-			bExit = theFacade.Login(userInfoItem);
+			bExit = Facade.Login(userInfoItem);
 			if (bExit)
 				break;
 			theFacade.createUser(userInfoItem);

@@ -16,8 +16,6 @@ import java.util.Date;
 
 public class StudentAssignmentMenu extends AssignmentMenu {
 	private boolean boolSubmit = false;
-	private Solution theSolution;
-	private Assignment theAssignment;
 	JLabel lAssignmentName = new JLabel();
 	JLabel lDueDate = new JLabel();
 	JTextField tbSolution = new JTextField();
@@ -87,9 +85,8 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	 */
 	public void showMenu(Assignment assignment, Person thePerson) {
 		try{
-			theAssignment = assignment;
-			SolutionIterator theIter = theAssignment.getSolutionIterator();
-			theSolution = (Solution) theIter.next(thePerson.userName);
+			SolutionIterator theIter = assignment.getSolutionIterator();
+			Solution theSolution = (Solution) theIter.next(thePerson.userName);
 			if (theSolution == null) {
 				tbSolution.setText("");
 				lGrade.setText("-1");
@@ -97,14 +94,14 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 				tbSolution.setText(theSolution.solutionFileName);
 				lGrade.setText(theSolution.getGradeString());
 			}
-			lAssignmentName.setText(theAssignment.assName);
-			lDueDate.setText(theAssignment.dueDate.toString());
-			lSuggestedSolution.setText(theAssignment.suggestSolution.solutionFileName);
+			lAssignmentName.setText(assignment.assName);
+			lDueDate.setText(assignment.dueDate.toString());
+			lSuggestedSolution.setText(assignment.suggestSolution.solutionFileName);
 			setVisible(true);
 			if (boolSubmit) {
 				if (theSolution == null) {
 					theSolution = new Solution();
-					theAssignment.addSolution(theSolution);
+					assignment.addSolution(theSolution);
 				}
 				theSolution.theAuthor = thePerson.userName;
 				theSolution.solutionFileName = tbSolution.getText();

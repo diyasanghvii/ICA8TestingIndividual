@@ -1,6 +1,5 @@
 package hacs;
 
-import java.util.Iterator;
 import java.util.Date;
 import java.util.Calendar;
 
@@ -38,9 +37,7 @@ public class ReminderVisitor extends NodeVisitor {
 	}
 
 	public void visitCourse(Course course) {
-		Iterator<Assignment> assignmentList = course.assignmentList.listIterator();
-		while (assignmentList.hasNext()) {
-			Assignment assignment = (Assignment) assignmentList.next();
+		for (Assignment assignment : course.assignmentList) {
 			assignment.accept(this);
 		}
 	}

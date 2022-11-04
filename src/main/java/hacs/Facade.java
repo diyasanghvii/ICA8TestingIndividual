@@ -11,7 +11,6 @@ import java.io.FileReader;
  */
 
 public class Facade {
-	public int userType;
 	private Course theSelectedCourse = null;
 	private int nCourseLevel = 0;
 	ClassCourseList theCourseList;
@@ -29,14 +28,6 @@ public class Facade {
 		return login.isExit();
 	}
 
-	/*
-	 * When click the add button of the CourseMenu , call this function this
-	 * function will new an assignment fill the required infomation this function
-	 * will call InstructorAssignmentMenu or StudentAssignmentMenu according to the
-	 * type of the user it will not update the course menu. the coursemenu need to
-	 * refreshed outside the function
-	 */
-
 	void addAssignment(Course theCourse) {
 		AssignmentMenu theAssignmentMenu;
 		if (thePerson.type == 0)
@@ -52,7 +43,7 @@ public class Facade {
 
 	/*
 	 * When click the view button of the CourseMenu , call this function and pass
-	 * the pointer of the Assignment and the person pointer to this function this
+	 * the pointer of the Assignment and the person pointer to this
 	 * function will new an assignment fill the required infomation this function
 	 * will call InstructorAssignmentMenu or StudentAssignmentMenu according to the
 	 * type of the user
@@ -72,11 +63,6 @@ public class Facade {
 	 * this function will grade the give Solution: theSolution this function calls
 	 */
 
-	void gradeSolution(Solution theSolution) {
-		SolutionMenu solutionMenu = new SolutionMenu();
-		solutionMenu.ShowMenu(theSolution);
-	}
-
 	void reportSolutions(Assignment theAssignment) {
 		Solution theSolution;
 		SolutionIterator theSolutionIterator;
@@ -94,7 +80,7 @@ public class Facade {
 
 	void remind() {
 		Reminder theReminder = new Reminder();
-		theReminder.showReminder(thePerson.getCourseList());
+		theReminder.showReminder();
 	}
 
 	void createUser(UserInfoItem userinfoitem) {
@@ -112,7 +98,7 @@ public class Facade {
 	 */
 	void createCourseList() {
 		theCourseList = new ClassCourseList();
-		theCourseList.initializeFromFile("C:\\Users\\DIYA\\IdeaProjects\\ICA8TestingIndividual\\src\\main\\java\\hacs\\CourseInfo.txt");
+		theCourseList.initializeFromFile();
 	}
 
 	/*
@@ -156,7 +142,7 @@ public class Facade {
 	 */
 	private String getCourseName(String aLine) {
 		int Sep = aLine.lastIndexOf(':');
-		return aLine.substring(Sep + 1, aLine.length());
+		return aLine.substring(Sep + 1);
 	}
 
 	/*

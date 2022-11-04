@@ -15,7 +15,6 @@ abstract public class Person {
 	ClassCourseList courseList;
 	CourseMenu theCourseMenu;
 	Course currentCourse;
-	Assignment currentAssignment;
 
 	public Person() {
 		courseList = new ClassCourseList();
@@ -56,10 +55,6 @@ abstract public class Person {
 			theCourseMenu.assignmentComboBox.addItem(theAssignment);
 		}
 		return false;
-	}
-
-	public ClassCourseList getCourseList() {
-		return courseList;
 	}
 
 	public void addCourse(Course theCourse) {

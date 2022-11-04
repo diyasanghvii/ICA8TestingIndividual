@@ -15,18 +15,12 @@ public class CourseIterator implements Iterator
   int currentCourseNumber =-1;
 
 
-  public CourseIterator() {
-  }
-
   public CourseIterator(ClassCourseList courseList) {
     theCourseList = courseList;
   }
 
   public boolean hasNext() {
-    if (currentCourseNumber >= theCourseList.size()-1)
-      return false;
-    else
-      return true;
+    return currentCourseNumber < theCourseList.size() - 1;
   }
 
   public Object next() {

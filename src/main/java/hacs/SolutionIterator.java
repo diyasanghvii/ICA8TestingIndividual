@@ -13,8 +13,6 @@ public class SolutionIterator implements Iterator
   SolutionList solutionList;
   int currentSolutionNumber = -1;
 
-  public SolutionIterator() {
-  }
   public SolutionIterator(SolutionList theSolutionList) {
     solutionList = theSolutionList;
     moveToHead();
@@ -28,10 +26,7 @@ public class SolutionIterator implements Iterator
   }
 
   public boolean hasNext() {
-    if (currentSolutionNumber >= solutionList.size()-1)
-      return false;
-    else
-      return true;
+    return currentSolutionNumber < solutionList.size() - 1;
   }
   public Object next() {
     if (hasNext()) {

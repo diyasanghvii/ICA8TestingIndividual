@@ -15,7 +15,7 @@ class ClassCourseListTest {
     @Test
     void findCourseByCourseName() {
         String courseName = "CSE470";
-        classCourseList.initializeFromFile("C:\\Users\\DIYA\\IdeaProjects\\ICA8TestingIndividual\\src\\main\\java\\hacs\\CourseInfo.txt");
+        classCourseList.initializeFromFile();
         assertEquals(courseName, classCourseList.findCourseByCourseName(courseName).toString());
     }
 }

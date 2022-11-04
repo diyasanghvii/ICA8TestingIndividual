@@ -14,22 +14,16 @@ public class ListIterator implements Iterator<Object> {
 	ArrayList<Object> theList;
 	int currentNumber = -1;
 
-	public ListIterator() {
-	}
-
 	public ListIterator(ArrayList<Object> list) {
 		theList = list;
 	}
 
 	public boolean hasNext() {
-		if (currentNumber >= theList.size() - 1)
-			return false;
-		else
-			return true;
+		return currentNumber < theList.size() - 1;
 	}
 
 	public Object next() {
-		if (hasNext() == true) {
+		if (hasNext()) {
 			currentNumber++;
 			return theList.get(currentNumber);
 		} else {

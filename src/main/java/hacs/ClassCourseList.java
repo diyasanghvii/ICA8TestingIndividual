@@ -16,10 +16,10 @@ public class ClassCourseList extends ArrayList<Course> {
 	public ClassCourseList() {
 	}
 	//// initialize the list by reading from the file.
-	void initializeFromFile(String theFileName) {
+	void initializeFromFile() {
 		try {
 			BufferedReader file;
-			String courseName = null;
+			String courseName;
 			file = new BufferedReader(new FileReader("C:\\Users\\DIYA\\IdeaProjects\\ICA8TestingIndividual\\src\\main\\java\\hacs\\CourseInfo.txt"));
 			while ((courseName = file.readLine()) != null) {
 				Course theCourse;
@@ -32,9 +32,7 @@ public class ClassCourseList extends ArrayList<Course> {
 	}
 
 	Course findCourseByCourseName(String CourseName) {
-		int courseCount = size();
-		for (int i = 0; i < courseCount; i++) {
-			Course theCourse = get(i);
+		for (Course theCourse : this) {
 			if (theCourse.courseName.compareTo(CourseName) == 0)
 				return theCourse;
 		}

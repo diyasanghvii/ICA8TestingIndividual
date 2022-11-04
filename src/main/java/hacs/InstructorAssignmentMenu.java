@@ -16,11 +16,8 @@ import java.text.DateFormat;
  */
 
 public class InstructorAssignmentMenu extends AssignmentMenu {
-
-  private boolean bSubmit = false;
-  private Solution theSolution;
   private Assignment theAssignment;
-  JComboBox comboSolutionList = new JComboBox();
+  JComboBox<Solution> comboSolutionList = new JComboBox<>();
   JTextField tbAssignmentName = new JTextField();
   JTextField tbDueDate = new JTextField();
   JTextField tbSuggestedSolution = new JTextField();
@@ -78,7 +75,6 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
   public void showMenu(Assignment assignment, Person person) {
     try {
       theAssignment = assignment;
-      Solution theSolution;
       tbAssignmentName.setText(theAssignment.assName);
 
       DateFormat theDateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
@@ -125,7 +121,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     comboSolutionList.removeAllItems() ;
     SolutionIterator solIter = new SolutionIterator(theAssignment.theSolutionList);
     while(solIter.hasNext()) {
-      theSolution=(Solution)solIter.next();
+      Solution theSolution = (Solution) solIter.next();
       comboSolutionList.addItem(theSolution);
     }
   }

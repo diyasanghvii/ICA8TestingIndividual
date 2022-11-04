@@ -22,15 +22,15 @@ import java.io.BufferedReader;
 
 public class Login extends JDialog {
 	private boolean mbExit = false;
-	private JLabel jLabel1 = new JLabel();
-	private JLabel jLabel2 = new JLabel();
-	private JButton loginButton = new JButton();
-	private JButton buttonExit = new JButton();
-	private JTextField userNameText = new JTextField();
-	private JPasswordField passwordText = new JPasswordField();
-	private JRadioButton studentRadio = new JRadioButton();
-	private JRadioButton instructorRadio = new JRadioButton();
-	private ButtonGroup buttonGroup1 = new ButtonGroup();
+	private final JLabel jLabel1 = new JLabel();
+	private final JLabel jLabel2 = new JLabel();
+	private final JButton loginButton = new JButton();
+	private final JButton buttonExit = new JButton();
+	private final JTextField userNameText = new JTextField();
+	private final JPasswordField passwordText = new JPasswordField();
+	private final JRadioButton studentRadio = new JRadioButton();
+	private final JRadioButton instructorRadio = new JRadioButton();
+	private final ButtonGroup buttonGroup1 = new ButtonGroup();
 	private String userBox = null;
 	private USER_TYPE userType = USER_TYPE.Student; // default to Student
 
@@ -118,7 +118,7 @@ public class Login extends JDialog {
 	 */
 	private String getPassword(String aLine) {
 		int sep = aLine.lastIndexOf(':');
-		return aLine.substring(sep + 1, aLine.length());
+		return aLine.substring(sep + 1);
 	}
 
 	/* after login get the userName of the login interface */

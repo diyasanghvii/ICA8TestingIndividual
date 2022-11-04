@@ -1,9 +1,9 @@
 package hacs;
 
-/**
- * Title:        HACS
- * Description:  SER ICA8:  TestingIndividual
- * @author Diya Roshan Sanghvi
+/*
+  Title:        HACS
+  Description:  SER ICA8:  TestingIndividual
+  @author Diya Roshan Sanghvi
  * @version 2.0
  */
 
@@ -31,16 +31,7 @@ public class Assignment {
   public boolean isOverDue(){
     Date today;
     today = new Date();
-    if (today.after(this.dueDate)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  public Solution addSolution() {
-    Solution mySolution = new Solution();
-    return mySolution;
+    return today.after(this.dueDate);
   }
 
   ////add the theSolution to the Solutionlist
@@ -49,28 +40,15 @@ public class Assignment {
     theSolutionList.add(theSolution);
   }
 
-  public void submitSolution() {
-  }
-
   public SolutionList getSolutionList() {
     return theSolutionList;
   }
 
-  /* return the solution of the give name
-  */
-  public Solution getSolution(String studentName)
-  {
-    SolutionIterator iterator = (SolutionIterator)theSolutionList.iterator();
-    return (Solution)iterator.next(studentName);
-  }
-
-  public Solution getSugSolution(){
-    return suggestSolution;
+  public void getSugSolution(){
   }
 
   public SolutionIterator getSolutionIterator() {
-    SolutionIterator theSolutionIterator = new SolutionIterator(theSolutionList);
-    return theSolutionIterator;
+    return new SolutionIterator(theSolutionList);
   }
 
   public String toString()

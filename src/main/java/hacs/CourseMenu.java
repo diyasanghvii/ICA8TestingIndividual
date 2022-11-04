@@ -4,10 +4,8 @@ import javax.swing.JDialog;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Iterator;
 
 /**
  * Title:        HACS
@@ -21,11 +19,10 @@ abstract public class CourseMenu extends JDialog
   Course theCourse;
   boolean bLogout=true;
   JRadioButton assignmentRadio = new JRadioButton();
-  JComboBox assignmentComboBox = new JComboBox();
+  JComboBox<Assignment> assignmentComboBox = new JComboBox<>();
   JButton assignmentViewButton = new JButton();
   JButton assignmentAddButton = new JButton();
   JRadioButton optionRadio = new JRadioButton();
-  JLabel assignmentContentLabel = new JLabel();
   JComboBox optionCombo = new JComboBox();
   JButton optionViewButton = new JButton();
   JButton optionAddButton = new JButton();
@@ -63,29 +60,25 @@ abstract public class CourseMenu extends JDialog
   function of facade, after that refresh window
   */
 
-  abstract void showMenu(Course theCourse);
   abstract void showAddButtons();
   abstract void showViewButtons();
   abstract void showRadios();
   abstract void showComboBoxes();
-  abstract void showLabel();
 
-  void assignmentAddButtonActionPerformed(ActionEvent e) {
+  void assignmentAddButtonActionPerformed(ActionEvent ignoredE) {
     Hacs.theFacade.addAssignment(theCourse);
     refresh();
   }
 
-  void assignmentViewButtonActionPerformed(ActionEvent e) {
+  void assignmentViewButtonActionPerformed(ActionEvent ignoredE) {
     Assignment theAssignment = (Assignment)assignmentComboBox.getSelectedItem();
     Hacs.theFacade.viewAssignment(theAssignment);
   }
 
   void refresh() {
     assignmentComboBox.removeAllItems();
-    Iterator<Assignment> iter = theCourse.assignmentList.iterator();
-    while(iter.hasNext())
-    {
-      assignmentComboBox.addItem(iter.next());
+    for (Assignment assignment : theCourse.assignmentList) {
+      assignmentComboBox.addItem(assignment);
     }
   }
 

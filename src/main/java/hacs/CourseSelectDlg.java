@@ -22,7 +22,7 @@ public class CourseSelectDlg extends JDialog {
 	Course selectedCourse;
 	int nCourseLevel = 0;
 	boolean bLogout = false;
-	JComboBox courseNameCom = new JComboBox();
+	JComboBox<Course> courseNameCom = new JComboBox<>();
 	JRadioButton highLevelRadio = new JRadioButton();
 	JRadioButton lowLevelRadio = new JRadioButton();
 	JLabel jLabel1 = new JLabel();
